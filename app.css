@@ -1,0 +1,213 @@
+/* MODERN CSS VARIABLES */
+:root {
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --accent-color: #4f46e5;
+    --accent-hover: #4338ca;
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius: 20px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* BENTO GRID LAYOUT */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 240px 200px;
+    gap: 24px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* GLOBAL CARD BASE STYLES */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    padding: 32px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+/* TYPOGRAPHY */
+.card h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* POSITIONING & CUSTOM CARD HOOKS */
+
+/* Profile Card - Spans columns 1 to 3 (first 2 columns) */
+.profile-card {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    text-align: left;
+}
+
+.profile-card img {
+    width: 100px;          /* Sets a definitive, professional desktop width */
+    height: 100px;         /* Forces a uniform height */
+    max-width: 100%;       /* Prevents the image from ever overflowing its parent */
+    border-radius: 50%;    /* Keeps it perfectly circular */
+    border: 4px solid white;
+    box-shadow: var(--shadow-md);
+    object-fit: cover;     /* CRITICAL: Ensures the image crops cleanly into the circle without stretching or squeezing */
+    flex-shrink: 0;        /* Prevents flexbox layout from crushing the image */
+}
+
+/* About Card - Spans columns 3 to 5 (last 2 columns) */
+.about-card {
+    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+}
+
+/* Skills Card - Bottom Row, Column 1 */
+.skills-card {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-content: flex-start;
+}
+
+.skills-card ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skills-card li {
+    background: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Project Card - Bottom Row, Spans middle 2 columns */
+.project-card {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+    justify-content: space-between;
+}
+
+.project-card a {
+    align-self: flex-start;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transition: var(--transition);
+}
+
+.project-card a:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+/* Social Card - Bottom Row, Last Column */
+.social-card {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+.social-card a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.social-card a:hover {
+    color: var(--accent-color);
+    transform: translateX(4px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 850px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 16px;
+    }
+
+    .profile-card, .about-card, .skills-card, .project-card, .social-card {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    
+    .profile-card {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 550px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-card {
+        grid-column: span 1;
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+}

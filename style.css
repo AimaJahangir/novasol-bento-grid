@@ -1,0 +1,217 @@
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+
+body{
+    font-family: 'Poppins', sans-serif;
+
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+/* MAIN CARD */
+
+.profile-card-container{
+
+    width: 100%;
+    max-width: 950px;
+
+    background: rgba(255,255,255,0.8);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    transition: 0.3s ease;
+}
+
+.profile-card-container:hover{
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+
+.avatar-section img{
+
+    width: 170px;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid white;
+
+    box-shadow:
+    0 10px 25px rgba(99,102,241,0.25);
+}
+
+/* CONTENT */
+
+.profile-content{
+    flex: 1;
+}
+
+/* BADGE */
+
+.badge{
+
+    display: inline-block;
+
+    background: #ede9fe;
+
+    color: #6d28d9;
+
+    padding: 8px 18px;
+
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 18px;
+}
+
+/* NAME */
+
+.profile-content h1{
+
+    font-size: 52px;
+
+    color: #0f172a;
+
+    margin-bottom: 10px;
+
+    line-height: 1.1;
+}
+
+/* JOB TITLE */
+
+.profile-content h3{
+
+    color: #6366f1;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+}
+
+/* DESCRIPTION */
+
+.profile-content p{
+
+    color: #475569;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    max-width: 650px;
+
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+
+.button-group{
+    display: flex;
+    gap: 16px;
+}
+
+.button-group a{
+
+    text-decoration: none;
+
+    padding: 14px 24px;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+/* PRIMARY BUTTON */
+
+.primary-btn{
+
+    background: #6366f1;
+
+    color: white;
+}
+
+.primary-btn:hover{
+
+    background: #4f46e5;
+
+    transform: translateY(-2px);
+}
+
+/* SECONDARY BUTTON */
+
+.secondary-btn{
+
+    background: #f1f5f9;
+
+    color: #0f172a;
+}
+
+.secondary-btn:hover{
+
+    background: #e2e8f0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px){
+
+    .profile-card-container{
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px;
+    }
+
+    .profile-content h1{
+        font-size: 38px;
+    }
+
+    .profile-content h3{
+        font-size: 20px;
+    }
+
+    .button-group{
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+}
